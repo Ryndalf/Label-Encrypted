@@ -57,7 +57,7 @@ def cifar_data(name):
         transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))
     ])
 
-    contents = os.listdir('./data/cifar10')
+    contents = os.listdir(f'./data/{name}')
 
     if len(contents) == 0:
         if name == 'cifar10':
