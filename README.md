@@ -224,7 +224,7 @@ cd ..
 Finally, we also perform experiments of randomized response with the same ```epsilon```.
 The results are saved as ```xx_random.txt``` in the "res" folder.
 ```bash
-python RandomRespond.py --dataset dataset_name --epsilon epsilon
+python3 RandomRespond.py --dataset dataset_name --epsilon epsilon
 ```
 For example:
 ```bash
