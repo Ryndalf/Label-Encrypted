@@ -112,7 +112,10 @@ vi ~/.bash_profile
 or
 vim ~/.bash_profile
 ```
-After the last command is finished, Type "a", and then set the environment variable by entering "export PATH=$PATH:$HOME/bin:/usr/local/python31014".
+After the last command is finished, Type "a", and then set the environment variable by entering 
+```
+export PATH=$PATH:$HOME/bin:/usr/local/python31014
+```.
 Finally, press the [ESC] key, enter ":wq" and then press the Enter key. Then the saving is completed.
 
 - Step 1: Clone the project, and you will get the fold named "Label-Encrypted".
