@@ -20,7 +20,7 @@ Daniel Arp, Michael Spreitzenbarth, Malte Hubner, Hugo Gascon, Konrad Rieck, and
 ```commandline
 Alex Krizhevsky et al. 2009. Learning multiple layers of features from tiny images. (2009).
 ```
-- Purchase-10(230M): We have uploaded this dataset. The dataset is sourced from:
+- Purchase-10(230M): The dataset is sourced from:
 ```commandline
 Kaggle competition. 2014. Acquire Valued Shoppers Challenge. https://www.kaggle.com/c/acquire-valued-shoppers-challenge/overview
 ```
@@ -45,7 +45,7 @@ Our device configurations used to complete the experiment are as follows:
 - RAM: 32G
 
 ### Software Requirements
-- OS: Linux version 6.5.0-15-generic (x86_64-linux-gnu-gcc-12 (Ubuntu 12.3.0-1ubuntu1~22.04) 12.3.0, GNU ld (GNU Binutils for Ubuntu) 2.38) #15~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Fri Jan 12 18:54:30 UTC 2
+- OS: Linux version 6.5.0-15-generic (x86_64-linux-gnu-gcc-12 (Ubuntu 12.3.0-1ubuntu1~22.04) 12.3.0
 - Software: Python 3.10.14
 
 ### Estimated Time and Storage Consumption
@@ -57,7 +57,7 @@ Our device configurations used to complete the experiment are as follows:
     - Dataset: Wine; Estimated Time: 85 minutes; Storage Consumption: 50K
     - Dataset: Abrupto; Estimated Time: 49 hours; Storage Consumption: 550K
     - Dataset: Drebin; Estimated Time: 83 hours; Storage Consumption: 450M
-- Ratio of Dataset Size vs Ratio of Model Accuracy (Figure 5)
+- Ratio of dataset size vs ratio of model accuracy (Figure 5)
     - Dataset: Iris; Estimated Time: 3 minutes; Storage Consumption: 50K
     - Dataset: Seeds; Estimated Time: 3 minutes; Storage Consumption: 50K
     - Dataset: Wine; Estimated Time: 3 minutes; Storage Consumption: 50K
@@ -79,7 +79,7 @@ Our device configurations used to complete the experiment are as follows:
 ### Accessibility (All badges)
 Everyone can access our artifacts via the link below. After the project is downloaded, it can be run directly on the local machine without the need for additional CPUs or GPUs.
 ```commandline
-XXXXXXXXXXXXX
+https://github.com/Ryndalf/Label-Encrypted
 ```
 
 ### Set up the environment (Only for Functional and Reproduced badges)
@@ -106,7 +106,7 @@ sudo make install
 ``` 
 - Step 1: Clone the project, and you will get the fold named "Label-Encrypted".
 ```bash
-git clone XXXXXXXXXXXXXXXX
+git clone 
 ```
 - Step 2: Install the Python packages in file "requirements.txt"
 ```bash
@@ -148,7 +148,7 @@ You can reproduce the result from [here](#ex4).
 The homomorphic operations in Zama Concrete will not have any impact on the accuracy of the experiment.
 It refers to Section I and Table 7 of the paper.
 You can reproduce the result from [here](#ex5).
-#### Main Result 6: Plaintext vs Ciphertext Versions of the Protocol with large datasets
+#### Main Result 6: Plaintext vs Ciphertext Versions of the Protocol with Large Datasets
 For large datasets, we obtained the same conclusion as in Experiment 2, which means that our protocol also works for large datasets.
 It refers to Section J and Table 8 of the paper.
 You can reproduce the result from [here](#ex6).
