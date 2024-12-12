@@ -59,7 +59,7 @@ def cifar_data(name):
 
     contents = os.listdir(f'../data/{name}')
 
-    if len(contents) == 0:
+    if len(contents) < 2:
         if name == 'cifar10':
             trainset = torchvision.datasets.CIFAR10(root='./data/cifar10', train=True, download=True, transform=transform)
             testset = torchvision.datasets.CIFAR10(root='./data/cifar10', train=False, download=True, transform=transform)
