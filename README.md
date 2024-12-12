@@ -83,6 +83,30 @@ Everyone can access our artifacts via the link below. After the project is downl
 ### Set up the environment (Only for Functional and Reproduced badges)
 In the experiment, since Zama is required to implement Fully Homomorphic Encryption, the toolkit concrete-numpy is needed. 
 It is learned from the [Zama official website](https://docs.zama.ai/concrete/get-started/installing) that currently, installation via PyPI and Docker is supported. We have chosen the former.
+
+#### Conda
+- Step 0: Install conda and Python environment
+You can choose the right version of Conda to download from [here](https://repo.anaconda.com/archive/index.html). Install conda via the command below:
+```bash
+bash conda_name.sh
+```
+After finshing installation of conda, we need to create the Python envrionment.
+```bash
+conda create -n env_label_encrypted python==3.10.14
+conda activate env_label_encrypted
+python --version
+```
+- Step 1: Clone the project, and you will get the fold named "Label-Encrypted".
+```bash
+git clone https://github.com/Ryndalf/Label-Encrypted.git
+```
+- Step 2: Install the Python packages in file "requirements.txt"
+```bash
+cd Label-Encrypted/source_code/artifiacts/
+pip install -r requirements.txt
+pip list
+```
+#### Withou Conda
 - Step 0: Download and install Python 3.10.14. 
 ```bash
 sudo apt update
@@ -105,8 +129,8 @@ sudo make install
 ```
 Create a soft link and edit the environment variables.
 ```bash
-ln -sf /usr/local/python31014/bin/python3 /usr/bin/python3
-ln -sf /usr/local/python31014/bin/pip3 /usr/bin/pip3
+ln -sf /usr/local/python31014/bin/python3 /usr/bin/python
+ln -sf /usr/local/python31014/bin/pip3 /usr/bin/pip
 vi ~/.bash_profile
 or
 vim ~/.bash_profile
@@ -126,8 +150,8 @@ git clone https://github.com/Ryndalf/Label-Encrypted.git
 - Step 2: Install the Python packages in file "requirements.txt"
 ```bash
 cd Label-Encrypted/source_code/artifiacts/
-pip3 install -r requirements.txt
-pip3 list
+pip install -r requirements.txt
+pip list
 ```
 You will see all the packages installed. If there are different versions of Python on your machine, please ensure that you install the requirements under the Python3.10.14.
 
@@ -135,7 +159,7 @@ You will see all the packages installed. If there are different versions of Pyth
 We have prepared the ```envtest.py``` file in the ```testing_env``` folder to test the main packages used. 
 If all the packages are installed successfully, the message "All key packages have been installed successfully" will be displayed at the end of the terminal.
 ```bash
-python3 ./testing_env/envtest.py
+python ./testing_env/envtest.py
 ```
 
 ## Artifact Evaluation (Only for Functional and Reproduced badges)
@@ -182,7 +206,7 @@ increase the accuracy of the resulting model.
 After running the following commands, you can find the saved results ```table_3_single_test.txt```in the directory of ```./source_code/others/```.
 ```bash
 cd source_code
-python3 SingleTestM1AndM2.py
+python SingleTestM1AndM2.py
 cd ..
 ```
 Estimated Time: 30 seconds; Storage Consumption: 550KB
@@ -203,14 +227,14 @@ cd ..
 For example
 ```bash
 cd source_code
-python3 CalculateTList.py seeds
+python CalculateTList.py seeds
 cd ..
 ```
 Nexy, we compared different models with different epsilon values. 
 The results can be found in the ```res``` folder.
 ```bash
 cd source_code
-python3 MainExperiment.py dataset_name epsilon
+python MainExperiment.py dataset_name epsilon
 cd ..
 ```
 ```epsilon``` here should be replaced by 0.1, 1, 10 or 100. Other ```epsilon``` can refer to Table 4 in the paper.
@@ -223,12 +247,12 @@ cd ..
 Finally, we also perform experiments of randomized response with the same ```epsilon```.
 The results are saved as ```xx_random.txt``` in the "res" folder.
 ```bash
-python3 RandomRespond.py --dataset dataset_name --epsilon epsilon
+python RandomRespond.py --dataset dataset_name --epsilon epsilon
 ```
 For example:
 ```bash
 cd source_code
-python3 MainExperiment.py seeds 1
+python MainExperiment.py seeds 1
 cd ..
 ```
 
@@ -244,19 +268,19 @@ We set $M_1$ is trained on $D_1$, and $M_2$ is trained on $D_1 \cup D_2$.
 We adjusted the sizes of the two datasets, increasing the size ratio of the two datasets from 0.1 all the way up to 1 (when the two datasets are of the same size).
 ```bash
 cd source_code
-python3 MultiTestM1AndM2.py dataset_name
+python MultiTestM1AndM2.py dataset_name
 cd ..
 ```
 ```dataset_name``` here can be replaced by all 8 datasets. For example:
 ```bash
 cd source_code
-python3 MultiTestM1AndM2.py iris
+python MultiTestM1AndM2.py iris
 cd ..
 ```
 After running all the datasets, the results will be saved in the "multiTest" folder. We can also plot the results via:
 ```bash
 cd source_code
-python3 PlotMultiTestM1AndM2.py
+python PlotMultiTestM1AndM2.py
 cd ..
 ```
 **Note: Before proceeding to the plotting stage, we need to run all the datasets in this section.**
@@ -280,7 +304,7 @@ Run the command below, you can find the following files in the "others" folder,
 - torch_weights.txt
 ```bash
 cd source_code
-python3 PyTorchFromScratch.py
+python PyTorchFromScratch.py
 cd ..
 ```
 Estimated Time: 10 seconds; Storage Consumption: 50K
@@ -294,7 +318,7 @@ Run the command below, you can find the following files in the "others" folder:
 - table_7_plaintext.txt
 ```bash
 cd source_code
-python3 PlaintextCiphertext.py
+python PlaintextCiphertext.py
 cd ..
 ```
 Estimated Time: 1 minute; Storage Consumption: 50K
