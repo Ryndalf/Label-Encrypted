@@ -127,8 +127,8 @@ git clone https://github.com/Ryndalf/Label-Encrypted.git
 - Step 2: Install the Python packages in file "requirements.txt"
 ```bash
 cd Label-Encrypted/source_code/artifiacts/
-pip install -r requirements.txt
-pip list
+pip3 install -r requirements.txt
+pip3 list
 ```
 You will see all the packages installed. If there are different versions of Python on your machine, please ensure that you install the requirements under the Python3.10.14.
 
@@ -136,7 +136,7 @@ You will see all the packages installed. If there are different versions of Pyth
 We have prepared the ```envtest.py``` file in the ```testing_env``` folder to test the main packages used. 
 If all the packages are installed successfully, the message "All key packages have been installed successfully" will be displayed at the end of the terminal.
 ```bash
-python ./testing_env/envtest.py
+python3 ./testing_env/envtest.py
 ```
 
 ## Artifact Evaluation (Only for Functional and Reproduced badges)
@@ -183,7 +183,7 @@ increase the accuracy of the resulting model.
 After running the following commands, you can find the saved results ```table_3_single_test.txt```in the directory of ```./source_code/others/```.
 ```bash
 cd source_code
-python SingleTestM1AndM2.py
+python3 SingleTestM1AndM2.py
 cd ..
 ```
 Estimated Time: 30 seconds; Storage Consumption: 550KB
@@ -197,28 +197,28 @@ The results, including the running time of the T list, are saved in the "TListDP
 Since Zama cannot return the ciphertext alone, our computation time includes both the encryption and decryption processes.
 ```bash
 cd source_code
-python CalculateTList.py dataset_name
+python3 CalculateTList.py dataset_name
 cd ..
 ```
 ```dataset_name``` should be replaced by "iris", "seeds", "wine", "abrupto" or "drebin".
 For example
 ```bash
 cd source_code
-python CalculateTList.py seeds
+python3 CalculateTList.py seeds
 cd ..
 ```
 Nexy, we compared different models with different epsilon values. 
 The results can be found in the ```res``` folder.
 ```bash
 cd source_code
-python MainExperiment.py dataset_name epsilon
+python3 MainExperiment.py dataset_name epsilon
 cd ..
 ```
 ```epsilon``` here should be replaced by 0.1, 1, 10 or 100. Other ```epsilon``` can refer to Table 4 in the paper.
 For example:
 ```bash
 cd source_code
-python MainExperiment.py seeds 1
+python3 MainExperiment.py seeds 1
 cd ..
 ```
 Finally, we also perform experiments of randomized response with the same ```epsilon```.
@@ -229,7 +229,7 @@ python RandomRespond.py --dataset dataset_name --epsilon epsilon
 For example:
 ```bash
 cd source_code
-python MainExperiment.py seeds 1
+python3 MainExperiment.py seeds 1
 cd ..
 ```
 
@@ -245,19 +245,19 @@ We set $M_1$ is trained on $D_1$, and $M_2$ is trained on $D_1 \cup D_2$.
 We adjusted the sizes of the two datasets, increasing the size ratio of the two datasets from 0.1 all the way up to 1 (when the two datasets are of the same size).
 ```bash
 cd source_code
-python MultiTestM1AndM2.py dataset_name
+python3 MultiTestM1AndM2.py dataset_name
 cd ..
 ```
 ```dataset_name``` here can be replaced by all 8 datasets. For example:
 ```bash
 cd source_code
-python MultiTestM1AndM2.py iris
+python3 MultiTestM1AndM2.py iris
 cd ..
 ```
 After running all the datasets, the results will be saved in the "multiTest" folder. We can also plot the results via:
 ```bash
 cd source_code
-python PlotMultiTestM1AndM2.py
+python3 PlotMultiTestM1AndM2.py
 cd ..
 ```
 **Note: Before proceeding to the plotting stage, we need to run all the datasets in this section.**
@@ -281,7 +281,7 @@ Run the command below, you can find the following files in the "others" folder,
 - torch_weights.txt
 ```bash
 cd source_code
-python PyTorchFromScratch.py
+python3 PyTorchFromScratch.py
 cd ..
 ```
 Estimated Time: 10 seconds; Storage Consumption: 50K
@@ -295,7 +295,7 @@ Run the command below, you can find the following files in the "others" folder:
 - table_7_plaintext.txt
 ```bash
 cd source_code
-python PlaintextCiphertext.py
+python3 PlaintextCiphertext.py
 cd ..
 ```
 Estimated Time: 1 minute; Storage Consumption: 50K
