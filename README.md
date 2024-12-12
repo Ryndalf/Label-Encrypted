@@ -106,7 +106,7 @@ sudo make install
 ``` 
 - Step 1: Clone the project, and you will get the fold named "Label-Encrypted".
 ```bash
-git clone 
+git clone https://github.com/Ryndalf/Label-Encrypted.git
 ```
 - Step 2: Install the Python packages in file "requirements.txt"
 ```bash
