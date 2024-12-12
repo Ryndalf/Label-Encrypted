@@ -20,7 +20,7 @@ Daniel Arp, Michael Spreitzenbarth, Malte Hubner, Hugo Gascon, Konrad Rieck, and
 ```commandline
 Alex Krizhevsky et al. 2009. Learning multiple layers of features from tiny images. (2009).
 ```
-- Purchase-10(230M): We have uploaded this dataset. The dataset is sourced from:
+- Purchase-10(230M): The dataset is sourced from:
 ```commandline
 Kaggle competition. 2014. Acquire Valued Shoppers Challenge. https://www.kaggle.com/c/acquire-valued-shoppers-challenge/overview
 ```
@@ -45,7 +45,7 @@ Our device configurations used to complete the experiment are as follows:
 - RAM: 32G
 
 ### Software Requirements
-- OS: Linux version 6.5.0-15-generic (x86_64-linux-gnu-gcc-12 (Ubuntu 12.3.0-1ubuntu1~22.04) 12.3.0, GNU ld (GNU Binutils for Ubuntu) 2.38) #15~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Fri Jan 12 18:54:30 UTC 2
+- OS: Linux version 6.5.0-15-generic (x86_64-linux-gnu-gcc-12 (Ubuntu 12.3.0-1ubuntu1~22.04) 12.3.0
 - Software: Python 3.10.14
 
 ### Estimated Time and Storage Consumption
@@ -57,7 +57,7 @@ Our device configurations used to complete the experiment are as follows:
     - Dataset: Wine; Estimated Time: 85 minutes; Storage Consumption: 50K
     - Dataset: Abrupto; Estimated Time: 49 hours; Storage Consumption: 550K
     - Dataset: Drebin; Estimated Time: 83 hours; Storage Consumption: 450M
-- Ratio of Dataset Size vs Ratio of Model Accuracy (Figure 5)
+- Ratio of dataset size vs ratio of model accuracy (Figure 5)
     - Dataset: Iris; Estimated Time: 3 minutes; Storage Consumption: 50K
     - Dataset: Seeds; Estimated Time: 3 minutes; Storage Consumption: 50K
     - Dataset: Wine; Estimated Time: 3 minutes; Storage Consumption: 50K
@@ -78,9 +78,7 @@ Our device configurations used to complete the experiment are as follows:
 ## Environment
 ### Accessibility (All badges)
 Everyone can access our artifacts via the link below. After the project is downloaded, it can be run directly on the local machine without the need for additional CPUs or GPUs.
-```commandline
-XXXXXXXXXXXXX
-```
+[https://github.com/Ryndalf/Label-Encrypted](https://github.com/Ryndalf/Label-Encrypted)
 
 ### Set up the environment (Only for Functional and Reproduced badges)
 In the experiment, since Zama is required to implement Fully Homomorphic Encryption, the toolkit concrete-numpy is needed. 
@@ -103,24 +101,40 @@ cd Python-3.10.14/
 ./configure --enable-optimizations
 make
 sudo make install
-``` 
+```
+```bash
+sudo mkdir -p /usr/local/python31014
+ln -sf /usr/local/python3/bin/python3 /usr/bin/python3
+ln -sf /usr/local/python3/bin/pip3 /usr/bin/pip3
+vi ~/.bash_profile
+or
+vim ~/.bash_profile
+```
+
+After the last command is finished, Type "a", and then set the environment variable by entering 
+```commandline
+export PATH=$PATH:$HOME/bin:/usr/local/python31014
+```
+
+Finally, press the [ESC] key, enter ":wq" and then press the Enter key. Then the saving is completed.
+
 - Step 1: Clone the project, and you will get the fold named "Label-Encrypted".
 ```bash
-git clone XXXXXXXXXXXXXXXX
+git clone https://github.com/Ryndalf/Label-Encrypted.git
 ```
 - Step 2: Install the Python packages in file "requirements.txt"
 ```bash
-cd Label-Encrypted/source_code/artifacts/
-pip install -r requirements.txt
-pip list
+cd Label-Encrypted/source_code/artifiacts/
+pip3 install -r requirements.txt
+pip3 list
 ```
 You will see all the packages installed. If there are different versions of Python on your machine, please ensure that you install the requirements under the Python3.10.14.
 
 ### Testing the Environment (Only for Functional and Reproduced badges)
-We have prepared the ```envtest.py``` file in the ```testingEnv``` folder to test the main packages used. 
+We have prepared the ```envtest.py``` file in the ```testing_env``` folder to test the main packages used. 
 If all the packages are installed successfully, the message "All key packages have been installed successfully" will be displayed at the end of the terminal.
 ```bash
-python ./testing_env/envtest.py
+python3 ./testing_env/envtest.py
 ```
 
 ## Artifact Evaluation (Only for Functional and Reproduced badges)
@@ -148,7 +162,7 @@ You can reproduce the result from [here](#ex4).
 The homomorphic operations in Zama Concrete will not have any impact on the accuracy of the experiment.
 It refers to Section I and Table 7 of the paper.
 You can reproduce the result from [here](#ex5).
-#### Main Result 6: Plaintext vs Ciphertext Versions of the Protocol with large datasets
+#### Main Result 6: Plaintext vs Ciphertext Versions of the Protocol with Large Datasets
 For large datasets, we obtained the same conclusion as in Experiment 2, which means that our protocol also works for large datasets.
 It refers to Section J and Table 8 of the paper.
 You can reproduce the result from [here](#ex6).
@@ -157,7 +171,7 @@ You can reproduce the result from [here](#ex6).
 Due to the randomness of the experiment, the results obtained cannot be exactly the same as those given in the article. 
 However, they are almost the same, which does not affect drawing the same conclusion.
 If there are different versions of Python on your machine, please ensure that you run the code under the Python3.10.14.
-#### <a id="ex1"></a> Experiment 1:  Accuracy of Models 𝑀1 and 𝑀2
+#### <a id="ex1"></a> Experiment 1:  Accuracy of Models $M_1$ and $M_2$
 We set it up so that the dataset used by the M2 model is larger than that of the M1 model.
 With these settings, we report the average test accuracy of training
 each model 10 times. We expect that the accuracy of M2 will be significantly improved compared to M1, 
@@ -167,7 +181,7 @@ increase the accuracy of the resulting model.
 After running the following commands, you can find the saved results ```table_3_single_test.txt```in the directory of ```./source_code/others/```.
 ```bash
 cd source_code
-python SingleTestM1AndM2.py
+python3 SingleTestM1AndM2.py
 cd ..
 ```
 Estimated Time: 30 seconds; Storage Consumption: 550KB
@@ -181,39 +195,39 @@ The results, including the running time of the T list, are saved in the "TListDP
 Since Zama cannot return the ciphertext alone, our computation time includes both the encryption and decryption processes.
 ```bash
 cd source_code
-python CalculateTList.py dataset_name
+python3 CalculateTList.py dataset_name
 cd ..
 ```
 ```dataset_name``` should be replaced by "iris", "seeds", "wine", "abrupto" or "drebin".
 For example
 ```bash
 cd source_code
-python CalculateTList.py seeds
+python3 CalculateTList.py seeds
 cd ..
 ```
 Nexy, we compared different models with different epsilon values. 
 The results can be found in the ```res``` folder.
 ```bash
 cd source_code
-python MainExperiment.py dataset_name epsilon
+python3 MainExperiment.py dataset_name epsilon
 cd ..
 ```
 ```epsilon``` here should be replaced by 0.1, 1, 10 or 100. Other ```epsilon``` can refer to Table 4 in the paper.
 For example:
 ```bash
 cd source_code
-python MainExperiment.py seeds 1
+python3 MainExperiment.py seeds 1
 cd ..
 ```
 Finally, we also perform experiments of randomized response with the same ```epsilon```.
 The results are saved as ```xx_random.txt``` in the "res" folder.
 ```bash
-python RandomRespond.py --dataset dataset_name --epsilon epsilon
+python3 RandomRespond.py --dataset dataset_name --epsilon epsilon
 ```
 For example:
 ```bash
 cd source_code
-python MainExperiment.py seeds 1
+python3 MainExperiment.py seeds 1
 cd ..
 ```
 
@@ -229,19 +243,19 @@ We set $M_1$ is trained on $D_1$, and $M_2$ is trained on $D_1 \cup D_2$.
 We adjusted the sizes of the two datasets, increasing the size ratio of the two datasets from 0.1 all the way up to 1 (when the two datasets are of the same size).
 ```bash
 cd source_code
-python MultiTestM1AndM2.py dataset_name
+python3 MultiTestM1AndM2.py dataset_name
 cd ..
 ```
 ```dataset_name``` here can be replaced by all 8 datasets. For example:
 ```bash
 cd source_code
-python MultiTestM1AndM2.py iris
+python3 MultiTestM1AndM2.py iris
 cd ..
 ```
 After running all the datasets, the results will be saved in the "multiTest" folder. We can also plot the results via:
 ```bash
 cd source_code
-python PlotMultiTestM1AndM2.py
+python3 PlotMultiTestM1AndM2.py
 cd ..
 ```
 **Note: Before proceeding to the plotting stage, we need to run all the datasets in this section.**
@@ -265,7 +279,7 @@ Run the command below, you can find the following files in the "others" folder,
 - torch_weights.txt
 ```bash
 cd source_code
-python PyTorchFromScratch.py
+python3 PyTorchFromScratch.py
 cd ..
 ```
 Estimated Time: 10 seconds; Storage Consumption: 50K
@@ -279,7 +293,7 @@ Run the command below, you can find the following files in the "others" folder:
 - table_7_plaintext.txt
 ```bash
 cd source_code
-python PlaintextCiphertext.py
+python3 PlaintextCiphertext.py
 cd ..
 ```
 Estimated Time: 1 minute; Storage Consumption: 50K
