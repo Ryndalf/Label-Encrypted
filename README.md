@@ -106,7 +106,7 @@ cd Label-Encrypted/source_code/artifiacts/
 pip install -r requirements.txt
 pip list
 ```
-#### Withou Conda
+#### Without Conda
 - Step 0: Download and install Python 3.10.14. 
 ```bash
 sudo apt update
