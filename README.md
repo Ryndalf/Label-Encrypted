@@ -79,7 +79,7 @@ Our device configurations used to complete the experiment are as follows:
 ### Accessibility (All badges)
 Everyone can access our artifacts via the link below. After the project is downloaded, it can be run directly on the local machine without the need for additional CPUs or GPUs.
 ```commandline
-https://github.com/Ryndalf/Label-Encrypted
+[https://github.com/Ryndalf/Label-Encrypted](https://github.com/Ryndalf/Label-Encrypted)
 ```
 
 ### Set up the environment (Only for Functional and Reproduced badges)
@@ -173,7 +173,7 @@ You can reproduce the result from [here](#ex6).
 Due to the randomness of the experiment, the results obtained cannot be exactly the same as those given in the article. 
 However, they are almost the same, which does not affect drawing the same conclusion.
 If there are different versions of Python on your machine, please ensure that you run the code under the Python3.10.14.
-#### <a id="ex1"></a> Experiment 1:  Accuracy of Models 𝑀1 and 𝑀2
+#### <a id="ex1"></a> Experiment 1:  Accuracy of Models $M_1$ and $M_2$
 We set it up so that the dataset used by the M2 model is larger than that of the M1 model.
 With these settings, we report the average test accuracy of training
 each model 10 times. We expect that the accuracy of M2 will be significantly improved compared to M1, 
