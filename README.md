@@ -78,9 +78,7 @@ Our device configurations used to complete the experiment are as follows:
 ## Environment
 ### Accessibility (All badges)
 Everyone can access our artifacts via the link below. After the project is downloaded, it can be run directly on the local machine without the need for additional CPUs or GPUs.
-```commandline
 [https://github.com/Ryndalf/Label-Encrypted](https://github.com/Ryndalf/Label-Encrypted)
-```
 
 ### Set up the environment (Only for Functional and Reproduced badges)
 In the experiment, since Zama is required to implement Fully Homomorphic Encryption, the toolkit concrete-numpy is needed. 
