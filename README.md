@@ -159,6 +159,7 @@ You will see all the packages installed. If there are different versions of Pyth
 We have prepared the ```envtest.py``` file in the ```testing_env``` folder to test the main packages used. 
 If all the packages are installed successfully, the message "All key packages have been installed successfully" will be displayed at the end of the terminal.
 ```bash
+cd Label-Encrypted
 python ./testing_env/envtest.py
 ```
 
