@@ -110,7 +110,7 @@ git clone https://github.com/Ryndalf/Label-Encrypted.git
 ```
 - Step 2: Install the Python packages in file "requirements.txt"
 ```bash
-cd Label-Encrypted/source_code/artifacts/
+cd Label-Encrypted/source_code/artifiacts/
 pip install -r requirements.txt
 pip list
 ```
