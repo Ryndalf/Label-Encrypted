@@ -96,14 +96,15 @@ find / -name Python-3.10.14.tgz
 ```
 Then following the commands below can help to install Python3.10.14:
 ```bash
+sudo mkdir -p /usr/local/python31014
 tar -zvxf Python-3.10.14.tgz 
 cd Python-3.10.14/
-./configure --enable-optimizations
+./configure --prefix=/usr/local/python31014
 make
 sudo make install
 ```
+Create a soft link and edit the environment variables.
 ```bash
-sudo mkdir -p /usr/local/python31014
 ln -sf /usr/local/python31014/bin/python3 /usr/bin/python3
 ln -sf /usr/local/python31014/bin/pip3 /usr/bin/pip3
 vi ~/.bash_profile
