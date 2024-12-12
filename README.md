@@ -133,7 +133,7 @@ pip list
 You will see all the packages installed. If there are different versions of Python on your machine, please ensure that you install the requirements under the Python3.10.14.
 
 ### Testing the Environment (Only for Functional and Reproduced badges)
-We have prepared the ```envtest.py``` file in the ```testingEnv``` folder to test the main packages used. 
+We have prepared the ```envtest.py``` file in the ```testing_env``` folder to test the main packages used. 
 If all the packages are installed successfully, the message "All key packages have been installed successfully" will be displayed at the end of the terminal.
 ```bash
 python ./testing_env/envtest.py
