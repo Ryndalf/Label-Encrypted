@@ -104,8 +104,8 @@ sudo make install
 ```
 ```bash
 sudo mkdir -p /usr/local/python31014
-ln -sf /usr/local/python3/bin/python3 /usr/bin/python3
-ln -sf /usr/local/python3/bin/pip3 /usr/bin/pip3
+ln -sf /usr/local/python31014/bin/python3 /usr/bin/python3
+ln -sf /usr/local/python31014/bin/pip3 /usr/bin/pip3
 vi ~/.bash_profile
 or
 vim ~/.bash_profile
