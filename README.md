@@ -254,7 +254,7 @@ cd ..
 For example:
 ```bash
 cd source_code
-python MainExperiment.py seeds 1
+python RandomRespond.py --dataset iris --epsilon 0.1
 cd ..
 ```
 
