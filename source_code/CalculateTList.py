@@ -504,8 +504,8 @@ def run(name):
         epsilon = total_epsilon / np.sqrt(epoch)
         sigma = 1 / epsilon
         time_list = []
-        for i in range(epoch):
-            print(i)
+        for i in tqdm(range(epoch)):
+            
             tic = time.time()
             for z in range(sample_num):
                 dp_list = []
