@@ -220,7 +220,7 @@ The results, including the running time of the T list, are saved in the "TListDP
 Since Zama cannot return the ciphertext alone, our computation time includes both the encryption and decryption processes.
 ```bash
 cd source_code
-python3 CalculateTList.py dataset_name
+python CalculateTList.py dataset_name
 cd ..
 ```
 ```dataset_name``` should be replaced by "iris", "seeds", "wine", "abrupto" or "drebin".
@@ -241,7 +241,7 @@ cd ..
 For example:
 ```bash
 cd source_code
-python3 MainExperiment.py seeds 1
+python MainExperiment.py seeds 1
 cd ..
 ```
 Finally, we also perform experiments of randomized response with the same ```epsilon```.
