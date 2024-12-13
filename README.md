@@ -159,6 +159,7 @@ You will see all the packages installed. If there are different versions of Pyth
 We have prepared the ```envtest.py``` file in the ```testing_env``` folder to test the main packages used. 
 If all the packages are installed successfully, the message "All key packages have been installed successfully" will be displayed at the end of the terminal.
 ```bash
+cd Label-Encrypted
 python ./testing_env/envtest.py
 ```
 
@@ -220,7 +221,7 @@ The results, including the running time of the T list, are saved in the "TListDP
 Since Zama cannot return the ciphertext alone, our computation time includes both the encryption and decryption processes.
 ```bash
 cd source_code
-python3 CalculateTList.py dataset_name
+python CalculateTList.py dataset_name
 cd ..
 ```
 ```dataset_name``` should be replaced by "iris", "seeds", "wine", "abrupto" or "drebin".
@@ -241,18 +242,20 @@ cd ..
 For example:
 ```bash
 cd source_code
-python3 MainExperiment.py seeds 1
+python MainExperiment.py seeds 1
 cd ..
 ```
 Finally, we also perform experiments of randomized response with the same ```epsilon```.
 The results are saved as ```xx_random.txt``` in the "res" folder.
 ```bash
+cd source_code
 python RandomRespond.py --dataset dataset_name --epsilon epsilon
+cd ..
 ```
 For example:
 ```bash
 cd source_code
-python MainExperiment.py seeds 1
+python RandomRespond.py --dataset iris --epsilon 0.1
 cd ..
 ```
 
