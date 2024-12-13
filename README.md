@@ -1,4 +1,4 @@
-# Label Encrypted
+# Accessing Value of Collaboration via FHE and Label-DP
 Artifact to accompany: "Practical, Private Assurance of the Value of Collaboration via Fully Homomorphic Encryption".
 
 This artifact includes the source code for achieving the experimental results in the paper, the datasets used, the configuration of the code environment and how to run it.
@@ -27,6 +27,8 @@ Kaggle competition. 2014. Acquire Valued Shoppers Challenge. https://www.kaggle.
 # Artifact Appendix
 
 Paper title: **Practical, Private Assurance of the Value of Collaboration via Fully Homomorphic Encryption**
+
+Artifacts HotCRP Id: **#17** (not your paper Id, but the artifacts id)
 
 Requested Badge: **Available**, **Functional**, and **Reproduced**
 
