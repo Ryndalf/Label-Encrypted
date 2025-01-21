@@ -223,17 +223,18 @@ The results, including the running time of the T list, are saved in the "TListDP
 Since Zama cannot return the ciphertext alone, our computation time includes both the encryption and decryption processes.
 ```bash
 cd source_code
-python CalculateTList.py dataset_name
+python CalculateTList.py dataset_name epsilon
 cd ..
 ```
 ```dataset_name``` should be replaced by "iris", "seeds", "wine", "abrupto" or "drebin".
+```epsilon``` here should be replaced by 0.1, 1, 10 or 100. Other ```epsilon``` can refer to Table 4 in the paper.
 For example
 ```bash
 cd source_code
-python CalculateTList.py seeds
+python CalculateTList.py seeds 1
 cd ..
 ```
-Nexy, we compared different models with different epsilon values. 
+Next, we compared different models with different epsilon values. 
 The results can be found in the ```res``` folder.
 ```bash
 cd source_code

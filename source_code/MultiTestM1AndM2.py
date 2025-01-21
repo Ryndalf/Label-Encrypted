@@ -3,6 +3,7 @@ import tqdm
 from sklearn.preprocessing import OneHotEncoder
 from network import Neural_Net, torch_train
 from utils import *
+import numpy as np
 
 """
     more data more accuracy
@@ -76,6 +77,14 @@ def m2_generator(train, micro_rate, d1):
 # split data for M1 and M2
 def get_data_split(name, micro_rate):
     trait, label, batch1, batch2, lr, wd, neuron = data_split(name)
+
+    # sample for testing
+    # warning:
+    # If the dataset is too small, some labels may have insufficient data samples, which may result in errors.
+    sample_ratio = 1  # 0~1
+    num = int(sample_ratio * len(trait))
+    idx = np.random.choice(range(len(trait)), num, replace=False)
+    trait, label = trait[idx], label[idx]
 
     # normalization
     trait = (trait - trait.mean(axis=0)) / trait.std(axis=0)

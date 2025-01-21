@@ -69,6 +69,15 @@ def run(name, total_epsilon):
         lr = 0.01
         batch = 32
 
+    # sample for testing
+    # warning:
+    # If the dataset is too small, some labels may have insufficient data samples, which may result in errors.
+    # The ratio here is less than and equal to that in CalculateTList.py
+    sample_ratio = 1  # 0~1
+    num = int(sample_ratio * len(trait))
+    idx = np.random.choice(range(len(trait)), num, replace=False)
+    trait, label = trait[idx], label[idx]
+
     # normalization mu std
     trait = (trait - trait.mean(axis=0)) / trait.std(axis=0)
     input_dim = trait.shape[1]

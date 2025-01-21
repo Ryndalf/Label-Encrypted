@@ -5,6 +5,7 @@ from torch.nn import functional as F
 import torch
 import tqdm
 from fhe import *
+import numpy as np
 
 np.set_printoptions(suppress=True)
 

@@ -5,6 +5,7 @@ from network import data_iter
 import time
 from fhe import *
 from utils import *
+
 import sys
 
 decimal = 6
@@ -364,7 +365,7 @@ class FHE_T_List:
         return decrypted
 
 
-def run(name):
+def run(name, tol_epsi):
     """
         This part is for pre-processing of t list sensitivity
 
@@ -420,6 +421,14 @@ def run(name):
         case _:
             file = trait = label = None
             assert print('not exist dataset')
+
+    # sample for testing
+    # warning:
+    # If the dataset is too small, some labels may have insufficient data samples, which may result in errors.
+    sample_ratio = 1  # 0~1
+    num = int(sample_ratio * len(trait))
+    idx = np.random.choice(range(len(trait)), num, replace=False)
+    trait, label = trait[idx], label[idx]
 
     # normalization mu std
     trait = (trait - trait.mean(axis=0)) / trait.std(axis=0)
@@ -498,43 +507,44 @@ def run(name):
     dp_array = np.zeros((epoch, sample_num, 100, nn_neuron, output_dim))
 
     # calculate dp noise for each epsilon and t list sensitivities
-    for total_epsilon in total_epsilon_t:
-        total_epsilon = float(total_epsilon)
-        print("epsilon:", total_epsilon)
-        epsilon = total_epsilon / np.sqrt(epoch)
-        sigma = 1 / epsilon
-        time_list = []
-        for i in tqdm(range(epoch)):
-            
-            tic = time.time()
-            for z in range(sample_num):
-                dp_list = []
-                n_sigma_ori = np.random.normal(loc=0, scale=sigma, size=[nn_neuron, output_dim])
-                n_sigma = np.around(n_sigma_ori, int(decimal / 2)) * 10 ** int(decimal / 2)
-                n_sigma = n_sigma.astype(int)
-                min_n_sigma = abs(np.min(n_sigma))
-                n_sigma += min_n_sigma
-                for j in delta_list:
-                    delta = int(np.around(j, int(decimal/2)) * 10**int(decimal/2))
-                    decrypted = fhe_t_list.en_run_de_crypt(n_sigma, delta)
-                    decrypted = decrypted.astype(float)
-                    decrypted = decrypted - delta * min_n_sigma
-                    dp = decrypted / 10 ** decimal
-                    dp_list.append(dp)
-                dp_array_temp = np.array(dp_list).reshape((100, nn_neuron, output_dim))
-                dp_array[i, z, :, :, :] = dp_array_temp
-            tic_e = time.time() - tic
-            time_list.append(tic_e)
-        time_list.append(np.mean(time_list))
-        np.savetxt(f'./TListDPNoise/{name}/{total_epsilon}_time_t_list.txt', time_list)
-        np.save(f'./TListDPNoise/{name}/{total_epsilon}_dp_list.npy', dp_array)
+    total_epsilon = float(tol_epsi)
+    print("epsilon:", total_epsilon)
+    epsilon = total_epsilon / np.sqrt(epoch)
+    sigma = 1 / epsilon
+    time_list = []
+    for i in tqdm(range(epoch)):
+
+        tic = time.time()
+        for z in range(sample_num):
+            dp_list = []
+            n_sigma_ori = np.random.normal(loc=0, scale=sigma, size=[nn_neuron, output_dim])
+            n_sigma = np.around(n_sigma_ori, int(decimal / 2)) * 10 ** int(decimal / 2)
+            n_sigma = n_sigma.astype(int)
+            min_n_sigma = abs(np.min(n_sigma))
+            n_sigma += min_n_sigma
+            for j in delta_list:
+                delta = int(np.around(j, int(decimal/2)) * 10**int(decimal/2))
+                decrypted = fhe_t_list.en_run_de_crypt(n_sigma, delta)
+                decrypted = decrypted.astype(float)
+                decrypted = decrypted - delta * min_n_sigma
+                dp = decrypted / 10 ** decimal
+                dp_list.append(dp)
+            dp_array_temp = np.array(dp_list).reshape((100, nn_neuron, output_dim))
+            dp_array[i, z, :, :, :] = dp_array_temp
+        tic_e = time.time() - tic
+        time_list.append(tic_e)
+    time_list.append(np.mean(time_list))
+    np.savetxt(f'./TListDPNoise/{name}/{total_epsilon}_time_t_list.txt', time_list)
+    np.save(f'./TListDPNoise/{name}/{total_epsilon}_dp_list.npy', dp_array)
     delta_list = pd.Series(delta_list).to_csv(f'./TListDPNoise/{name}/delta_list.csv')
 
 
 if __name__ == "__main__":
     name = sys.argv[1]
+    tol_epsi = float(sys.argv[2])
     folder_path = f"./TListDPNoise/{name}"
     if not os.path.exists(folder_path):
         os.makedirs(folder_path)
-    run(name)
-
+    ss = time.time()
+    run(name, tol_epsi)
+    print(time.time() - ss)
