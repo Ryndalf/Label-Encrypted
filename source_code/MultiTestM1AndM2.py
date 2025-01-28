@@ -81,7 +81,7 @@ def get_data_split(name, micro_rate):
     # sample for testing
     # warning:
     # If the dataset is too small, some labels may have insufficient data samples, which may result in errors.
-    sample_ratio = 1  # 0~1
+    sample_ratio = 1
     num = int(sample_ratio * len(trait))
     idx = np.random.choice(range(len(trait)), num, replace=False)
     trait, label = trait[idx], label[idx]
@@ -134,7 +134,7 @@ def run(dataset):
         print('The ratio of D1 and D2:', mic)
         res_micro = []
         res_large = []
-        for i in tqdm.tqdm(range(100)):
+        for i in tqdm.tqdm(range(10)):
             # load data and parameters
             train, test, micro_train, input_dim, output_dim, original, batch1, batch2, lr, wd, neuron = get_data_split(dataset, micro_rate=mic)
 

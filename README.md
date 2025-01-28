@@ -348,6 +348,52 @@ Researcher could take our work as a benchmark when proposing improved methods.
 ## License
 All code in this repository is licensed under MIT license.
 
+## Temporary Settings for Artifact
+To conveniently test the experiments, you can adjust the epoch and sampling ratio at the following parts of the code:
+- CalculateTList.py:
+    - epoch for Experiment 2: line 378, variable name "epoch", default 50.
+    - epoch for Experiment 6: line 385, variable name "epoch", default 70.
+    - sampling ratio: line 428, variable name "sample_ratio", default 1.
+- MainExperiment.py:
+    - epoch for Experiment 2: line 61, variable name "epoch", default 50.
+    - epoch for Experiment 6: line 67, variable name "epoch", default 70.
+    - sampling ratio: line 76, variable name "sample_ratio", default 1.
+- MultiTestM1AndM2.py:
+    - number of iterations used to calculate the average: line 137,  displayed as "range(100)", default 100.
+    - sampling ratio: line 84, variable name "sample_ratio", default 1.
 
+Note: Please ensure that the same configurations are used for the same dataset in both CalculateTList.py and MainExperiment.py.
 
+## Temporary Settings for Artifact 2
+To conveniently test the experiments, you can adjust the epoch and sampling ratio for Experiments 2, 3 and 6.
+Before running the program, first run the following .sh file to adjust the parameters.
+- Experiment 2:
+```bash
+bash exp2.sh epoch1 ratio1 epoch2 ratio2
+```
+The epoch1 and ratio1 are the parameters for CalculateTList.py; The epoch2 and ratio2 are the parameters for MainExperiment.py.
 
+Note: epoch1 $\geq$ epoch2; ratio1 $\geq$ ratio2
+
+For example:
+```bash
+bash exp2.sh 2 0.2 1 0.1
+```
+
+- Experiment 6:
+Except for the executable file exp6.sh, everything else is the same as in Experiment 2.
+For example:
+```bash
+bash exp6.sh 2 0.2 1 0.1
+```
+
+- Experiment 3:
+```bash
+bash exp3.sh avg_round ratio
+```
+The two parameters are for MultiTestM1AndM2.py. 
+The avg_round represents the number of times the loop runs to calculate the average; the ratio represents sampling ratio.
+For example:
+```bash
+bash exp3.sh 10 0.1 
+```

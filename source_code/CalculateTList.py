@@ -24,7 +24,7 @@ class Neural_Net:
         self.delta_list = []
         self.delta_list_t = delta_list_t
         self.dp_noise = dp_noise
-
+	
         # initialize layers info
         for l in range(len(layers) - 1):
             if l + 1 != len(layers) - 1:
@@ -425,7 +425,7 @@ def run(name, tol_epsi):
     # sample for testing
     # warning:
     # If the dataset is too small, some labels may have insufficient data samples, which may result in errors.
-    sample_ratio = 1  # 0~1
+    sample_ratio = 1
     num = int(sample_ratio * len(trait))
     idx = np.random.choice(range(len(trait)), num, replace=False)
     trait, label = trait[idx], label[idx]

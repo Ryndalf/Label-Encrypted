@@ -73,7 +73,7 @@ def run(name, total_epsilon):
     # warning:
     # If the dataset is too small, some labels may have insufficient data samples, which may result in errors.
     # The ratio here is less than and equal to that in CalculateTList.py
-    sample_ratio = 1  # 0~1
+    sample_ratio = 1
     num = int(sample_ratio * len(trait))
     idx = np.random.choice(range(len(trait)), num, replace=False)
     trait, label = trait[idx], label[idx]
