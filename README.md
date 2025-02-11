@@ -104,8 +104,7 @@ git clone https://github.com/Ryndalf/Label-Encrypted.git
 ```
 - Step 2: Install the Python packages in file "requirements.txt"
 ```bash
-cd Label-Encrypted/source_code/artifiacts/
-pip install -r requirements.txt
+pip install -r ./Label-Encrypted/source_code/artifiacts/requirements.txt
 pip list
 ```
 #### <a id="instructions_non_conda"></a> Not Using Conda
@@ -124,8 +123,7 @@ Then following the commands below can help to install Python3.10.14:
 ```bash
 sudo mkdir -p /usr/local/python31014
 tar -zvxf Python-3.10.14.tgz 
-cd Python-3.10.14/
-./configure --prefix=/usr/local/python31014
+./Python-3.10.14/configure --prefix=/usr/local/python31014
 make
 sudo make install
 ```
@@ -151,8 +149,7 @@ git clone https://github.com/Ryndalf/Label-Encrypted.git
 ```
 - Step 2: Install the Python packages in file "requirements.txt"
 ```bash
-cd Label-Encrypted/source_code/artifiacts/
-pip install -r requirements.txt
+pip install -r ./Label-Encrypted/source_code/artifiacts/requirements.txt
 pip list
 ```
 You will see all the packages installed. If there are different versions of Python on your machine, please ensure that you install the requirements under the Python3.10.14.
@@ -161,8 +158,7 @@ You will see all the packages installed. If there are different versions of Pyth
 We have prepared the ```envtest.py``` file in the ```testing_env``` folder to test the main packages used. 
 If all the packages are installed successfully, the message "All key packages have been installed successfully" will be displayed at the end of the terminal.
 ```bash
-cd Label-Encrypted
-python ./testing_env/envtest.py
+python ./Label-Encrypted/testing_env/envtest.py
 ```
 Note that, you might suffer from an error saying lzma (or liblzma) is missing. In this case, please install lzma manually, following the instructions below.
 ```bash
