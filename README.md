@@ -84,9 +84,9 @@ Everyone can access our artifacts via the link below. After the project is downl
 
 ### Set up the environment (Only for Functional and Reproduced badges)
 In the experiment, since Zama is required to implement Fully Homomorphic Encryption, the toolkit concrete-numpy is needed. 
-Based on the [Zama official website](https://docs.zama.ai/concrete/get-started/installing), the installation of Zama via PyPI and Docker is supported. We have chosen the former (PyPI). Note that, since Conda is a popular management tool for Python, we recommend you set up the environment following the instructions listed in [Conda](#instructions_conda). In case you are not a fan of Conda, we also prepare instructions for non-conda environment following [Conda](#instructions_conda).
+Based on the [Zama official website](https://docs.zama.ai/concrete/get-started/installing), the installation of Zama via PyPI and Docker is supported. We have chosen the former (PyPI). Note that, since Conda is a popular management tool for Python, we recommend you set up the environment following the instructions listed in [Using Conda](#instructions_conda). In case you are not a fan of Conda, we also prepare instructions for the non-conda environment in [Not Using Conda](#instructions_non_conda).
 
-#### <a id="instructions_conda"></a> Conda
+#### <a id="instructions_conda"></a> Using Conda
 - Step 0: Install conda and Python environment
 You can choose the right version of Conda to download from [here](https://repo.anaconda.com/archive/index.html). Install conda via the command below:
 ```bash
@@ -108,7 +108,7 @@ cd Label-Encrypted/source_code/artifiacts/
 pip install -r requirements.txt
 pip list
 ```
-#### Without Conda
+#### <a id="instructions_non_conda"></a> Not Using Conda
 - Step 0: Download and install Python 3.10.14. 
 ```bash
 sudo apt update
