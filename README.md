@@ -8,13 +8,13 @@ This artifact includes the source code for achieving the experimental results in
 ```commandline
 Markelle Kelly, Rachel Longjohn, and Kolby Nottingham. 2022. The UCI Machine Learning Repository. https://archive.ics.uci.edu
 ```
-- Abrupto(504K): We don't have the authority to share this dataset. The dataset is sourced from:
+- Abrupto(504K): We don't have the authority to share this dataset. Please contact the authors directly for the access permissions. The dataset is sourced from:
 ```commandline
 Jesús López Lobo. 2020. Synthetic datasets for concept drift detection purposes. https://doi.org/10.7910/DVN/5OWRGB
 ```
-- Drebin(446M): We don't have the authority to share this dataset. The dataset is sourced from:
+- Drebin(446M): We don't have the authority to share this dataset. Please contact the authors directly for the access permissions. The dataset is sourced from:
 ```commandline
-Daniel Arp, Michael Spreitzenbarth, Malte Hubner, Hugo Gascon, Konrad Rieck, and CERT Siemens. 2014. Drebin: Effective and explainable detection of android malware in your pocket.. In Ndss, Vol. 14. 23–26.
+Daniel Arp, Michael Spreitzenbarth, Malte Hubner, Hugo Gascon, Konrad Rieck, and CERT Siemens. 2014. Drebin: Effective and explainable detection of android malware in your pocket. In Ndss, Vol. 14. 23–26.
 ```
 - CIFAR-10(177M) and CIFAR-100(177M): The datasets will be automatically downloaded when you run the code. The dataset is sourced from:
 ```commandline
@@ -102,7 +102,7 @@ python --version
 ```bash
 git clone https://github.com/Ryndalf/Label-Encrypted.git
 ```
-- Step 2: Install the Python packages in file "requirements.txt"
+- Step 2: Install all the Python packages (including concrete-numpy) used in our experiments.
 ```bash
 pip install -r ./Label-Encrypted/source_code/artifiacts/requirements.txt
 pip list
