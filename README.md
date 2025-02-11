@@ -90,9 +90,9 @@ Based on the [Zama official website](https://docs.zama.ai/concrete/get-started/i
 - Step 0: Install conda and Python environment
 You can choose the right version of Conda to download from [here](https://repo.anaconda.com/archive/index.html). Install conda via the command below:
 ```bash
-bash conda_name.sh
+bash downloaded_conda_installer.sh
 ```
-After finshing installation of conda, we need to create the Python envrionment.
+Once installing conda, create a conda environment for Python 3.10.
 ```bash
 conda create -n env_label_encrypted python==3.10.14
 conda activate env_label_encrypted
