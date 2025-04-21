@@ -315,7 +315,7 @@ And the values of epsilon were 1, 10, 100, and 1000.
     - Dataset: Purchase-10; Estimated Time: 1590 days; Storage Consumption: 230M
 
 ## Limitations (Only for Functional and Reproduced badges)
-We are unable to provide the datasets "Abrupto" and "Drebin" due to authorization issues.
+We are unable to provide the datasets "Drebin" due to authorization issues.
 
 ## Notes on Reusability (Only for Functional and Reproduced badges)
 We are the first work to explore an efficient way to securely share data between two parties under a semi-honest setting.
