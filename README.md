@@ -24,6 +24,7 @@ Alex Krizhevsky et al. 2009. Learning multiple layers of features from tiny imag
 ```commandline
 Kaggle competition. 2014. Acquire Valued Shoppers Challenge. https://www.kaggle.com/c/acquire-valued-shoppers-challenge/overview
 ```
+We name this dataset "purchases_full.csv".
 # Artifact Appendix
 
 Paper title: **Practical, Private Assurance of the Value of Collaboration via Fully Homomorphic Encryption**
