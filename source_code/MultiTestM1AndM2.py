@@ -134,7 +134,7 @@ def run(dataset):
         print('The ratio of D1 and D2:', mic)
         res_micro = []
         res_large = []
-        for i in tqdm.tqdm(range(10)):
+        for i in tqdm.tqdm(range(100)):
             # load data and parameters
             train, test, micro_train, input_dim, output_dim, original, batch1, batch2, lr, wd, neuron = get_data_split(dataset, micro_rate=mic)
 

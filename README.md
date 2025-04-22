@@ -8,13 +8,13 @@ This artifact includes the source code for achieving the experimental results in
 ```commandline
 Markelle Kelly, Rachel Longjohn, and Kolby Nottingham. 2022. The UCI Machine Learning Repository. https://archive.ics.uci.edu
 ```
-- Abrupto(504K): We don't have the authority to share this dataset. The dataset is sourced from:
+- Abrupto(504K): The dataset can be downloaded from [here](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/5OWRGB) and the file named is "mixed_0101_abrupto.tab". When you access the data, please select "Comma Separated Values (Original File Format)". We selected the first 10,000 samples from the dataset for our experiments and named the new datasets as "mixed_1010_abrupto_1.csv". The dataset is sourced from:
 ```commandline
 Jesús López Lobo. 2020. Synthetic datasets for concept drift detection purposes. https://doi.org/10.7910/DVN/5OWRGB
 ```
-- Drebin(446M): We don't have the authority to share this dataset. The dataset is sourced from:
+- Drebin(446M): We don't have the authority to share this dataset. Please contact the authors directly for the access permissions. The dataset is sourced from:
 ```commandline
-Daniel Arp, Michael Spreitzenbarth, Malte Hubner, Hugo Gascon, Konrad Rieck, and CERT Siemens. 2014. Drebin: Effective and explainable detection of android malware in your pocket.. In Ndss, Vol. 14. 23–26.
+Daniel Arp, Michael Spreitzenbarth, Malte Hubner, Hugo Gascon, Konrad Rieck, and CERT Siemens. 2014. Drebin: Effective and explainable detection of android malware in your pocket. In Ndss, Vol. 14. 23–26.
 ```
 - CIFAR-10(177M) and CIFAR-100(177M): The datasets will be automatically downloaded when you run the code. The dataset is sourced from:
 ```commandline
@@ -24,6 +24,7 @@ Alex Krizhevsky et al. 2009. Learning multiple layers of features from tiny imag
 ```commandline
 Kaggle competition. 2014. Acquire Valued Shoppers Challenge. https://www.kaggle.com/c/acquire-valued-shoppers-challenge/overview
 ```
+We name this dataset "purchases_full.csv".
 # Artifact Appendix
 
 Paper title: **Practical, Private Assurance of the Value of Collaboration via Fully Homomorphic Encryption**
@@ -84,15 +85,15 @@ Everyone can access our artifacts via the link below. After the project is downl
 
 ### Set up the environment (Only for Functional and Reproduced badges)
 In the experiment, since Zama is required to implement Fully Homomorphic Encryption, the toolkit concrete-numpy is needed. 
-It is learned from the [Zama official website](https://docs.zama.ai/concrete/get-started/installing) that currently, installation via PyPI and Docker is supported. We have chosen the former.
+Based on the [Zama official website](https://docs.zama.ai/concrete/get-started/installing), the installation of Zama via PyPI and Docker is supported. We have chosen the former (PyPI). Note that, since Conda is a popular management tool for Python, we recommend you set up the environment following the instructions listed in [Using Conda](#instructions_conda). In case you are not a fan of Conda, we also prepare instructions for the non-conda environment in [Not Using Conda](#instructions_non_conda).
 
-#### Conda
+#### <a id="instructions_conda"></a> Using Conda
 - Step 0: Install conda and Python environment
 You can choose the right version of Conda to download from [here](https://repo.anaconda.com/archive/index.html). Install conda via the command below:
 ```bash
-bash conda_name.sh
+bash downloaded_conda_installer.sh
 ```
-After finshing installation of conda, we need to create the Python envrionment.
+Once installing conda, create a conda environment for Python 3.10.
 ```bash
 conda create -n env_label_encrypted python==3.10.14
 conda activate env_label_encrypted
@@ -102,13 +103,12 @@ python --version
 ```bash
 git clone https://github.com/Ryndalf/Label-Encrypted.git
 ```
-- Step 2: Install the Python packages in file "requirements.txt"
+- Step 2: Install all the Python packages (including concrete-numpy) used in our experiments.
 ```bash
-cd Label-Encrypted/source_code/artifiacts/
-pip install -r requirements.txt
+pip install -r ./Label-Encrypted/source_code/artifiacts/requirements.txt
 pip list
 ```
-#### Without Conda
+#### <a id="instructions_non_conda"></a> Not Using Conda
 - Step 0: Download and install Python 3.10.14. 
 ```bash
 sudo apt update
@@ -124,8 +124,7 @@ Then following the commands below can help to install Python3.10.14:
 ```bash
 sudo mkdir -p /usr/local/python31014
 tar -zvxf Python-3.10.14.tgz 
-cd Python-3.10.14/
-./configure --prefix=/usr/local/python31014
+./Python-3.10.14/configure --prefix=/usr/local/python31014
 make
 sudo make install
 ```
@@ -151,8 +150,7 @@ git clone https://github.com/Ryndalf/Label-Encrypted.git
 ```
 - Step 2: Install the Python packages in file "requirements.txt"
 ```bash
-cd Label-Encrypted/source_code/artifiacts/
-pip install -r requirements.txt
+pip install -r ./Label-Encrypted/source_code/artifiacts/requirements.txt
 pip list
 ```
 You will see all the packages installed. If there are different versions of Python on your machine, please ensure that you install the requirements under the Python3.10.14.
@@ -161,8 +159,11 @@ You will see all the packages installed. If there are different versions of Pyth
 We have prepared the ```envtest.py``` file in the ```testing_env``` folder to test the main packages used. 
 If all the packages are installed successfully, the message "All key packages have been installed successfully" will be displayed at the end of the terminal.
 ```bash
-cd Label-Encrypted
-python ./testing_env/envtest.py
+python ./Label-Encrypted/testing_env/envtest.py
+```
+Note that, you might suffer from an error saying lzma (or liblzma) is missing. In this case, please install lzma manually, following the instructions below.
+```bash
+sudo apt install liblzma-dev
 ```
 
 ## Artifact Evaluation (Only for Functional and Reproduced badges)
@@ -208,9 +209,7 @@ increase the accuracy of the resulting model.
 
 After running the following commands, you can find the saved results ```table_3_single_test.txt```in the directory of ```./source_code/others/```.
 ```bash
-cd source_code
-python SingleTestM1AndM2.py
-cd ..
+python ./Label-Encrypted/source_code/SingleTestM1AndM2.py
 ```
 Estimated Time: 30 seconds; Storage Consumption: 550KB
 
@@ -222,44 +221,32 @@ Initially, we need to pre-calculate the sensitivity list (T list) and the corres
 The results, including the running time of the T list, are saved in the "TListDPNoise" file. 
 Since Zama cannot return the ciphertext alone, our computation time includes both the encryption and decryption processes.
 ```bash
-cd source_code
-python CalculateTList.py dataset_name epsilon
-cd ..
+python ./Label-Encrypted/source_code/CalculateTList.py dataset_name epsilon
 ```
 ```dataset_name``` should be replaced by "iris", "seeds", "wine", "abrupto" or "drebin".
 ```epsilon``` here should be replaced by 0.1, 1, 10 or 100. Other ```epsilon``` can refer to Table 4 in the paper.
 For example
 ```bash
-cd source_code
-python CalculateTList.py seeds 1
-cd ..
+python ./Label-Encrypted/source_code/CalculateTList.py seeds 1
 ```
 Next, we compared different models with different epsilon values. 
 The results can be found in the ```res``` folder.
 ```bash
-cd source_code
-python MainExperiment.py dataset_name epsilon
-cd ..
+python ./Label-Encrypted/source_code/MainExperiment.py dataset_name epsilon
 ```
 ```epsilon``` here should be replaced by 0.1, 1, 10 or 100. Other ```epsilon``` can refer to Table 4 in the paper.
 For example:
 ```bash
-cd source_code
-python MainExperiment.py seeds 1
-cd ..
+python ./Label-Encrypted/source_code/MainExperiment.py seeds 1
 ```
 Finally, we also perform experiments of randomized response with the same ```epsilon```.
 The results are saved as ```xx_random.txt``` in the "res" folder.
 ```bash
-cd source_code
-python RandomRespond.py --dataset dataset_name --epsilon epsilon
-cd ..
+python ./Label-Encrypted/source_code/RandomRespond.py --dataset dataset_name --epsilon epsilon
 ```
 For example:
 ```bash
-cd source_code
-python RandomRespond.py --dataset iris --epsilon 0.1
-cd ..
+python ./Label-Encrypted/source_code/RandomRespond.py --dataset iris --epsilon 0.1
 ```
 
 - Estimated Time and Storage Consumption for each ```epsilon```
@@ -273,21 +260,15 @@ cd ..
 We set $M_1$ is trained on $D_1$, and $M_2$ is trained on $D_1 \cup D_2$.
 We adjusted the sizes of the two datasets, increasing the size ratio of the two datasets from 0.1 all the way up to 1 (when the two datasets are of the same size).
 ```bash
-cd source_code
-python MultiTestM1AndM2.py dataset_name
-cd ..
+python ./Label-Encrypted/source_code/MultiTestM1AndM2.py dataset_name
 ```
 ```dataset_name``` here can be replaced by all 8 datasets. For example:
 ```bash
-cd source_code
-python MultiTestM1AndM2.py iris
-cd ..
+python ./Label-Encrypted/source_code/MultiTestM1AndM2.py iris
 ```
 After running all the datasets, the results will be saved in the "multiTest" folder. We can also plot the results via:
 ```bash
-cd source_code
-python PlotMultiTestM1AndM2.py
-cd ..
+python ./Label-Encrypted/source_code/PlotMultiTestM1AndM2.py
 ```
 **Note: Before proceeding to the plotting stage, we need to run all the datasets in this section.**
 - Estimated Time and Storage Consumption
@@ -309,9 +290,7 @@ Run the command below, you can find the following files in the "others" folder,
 - from_scratch_weights.txt
 - torch_weights.txt
 ```bash
-cd source_code
-python PyTorchFromScratch.py
-cd ..
+python ./Label-Encrypted/source_code/PyTorchFromScratch.py
 ```
 Estimated Time: 10 seconds; Storage Consumption: 50K
 
@@ -323,9 +302,7 @@ Run the command below, you can find the following files in the "others" folder:
 - table_7_ciphertext.txt
 - table_7_plaintext.txt
 ```bash
-cd source_code
-python PlaintextCiphertext.py
-cd ..
+python ./Label-Encrypted/source_code/PlaintextCiphertext.py
 ```
 Estimated Time: 1 minute; Storage Consumption: 50K
 
@@ -339,7 +316,7 @@ And the values of epsilon were 1, 10, 100, and 1000.
     - Dataset: Purchase-10; Estimated Time: 1590 days; Storage Consumption: 230M
 
 ## Limitations (Only for Functional and Reproduced badges)
-We are unable to provide the datasets "Abrupto" and "Drebin" due to authorization issues.
+We are unable to provide the datasets "Drebin" due to authorization issues.
 
 ## Notes on Reusability (Only for Functional and Reproduced badges)
 We are the first work to explore an efficient way to securely share data between two parties under a semi-honest setting.
@@ -348,23 +325,7 @@ Researcher could take our work as a benchmark when proposing improved methods.
 ## License
 All code in this repository is licensed under MIT license.
 
-## Temporary Settings for Artifact
-To conveniently test the experiments, you can adjust the epoch and sampling ratio at the following parts of the code:
-- CalculateTList.py:
-    - epoch for Experiment 2: line 378, variable name "epoch", default 50.
-    - epoch for Experiment 6: line 385, variable name "epoch", default 70.
-    - sampling ratio: line 428, variable name "sample_ratio", default 1.
-- MainExperiment.py:
-    - epoch for Experiment 2: line 61, variable name "epoch", default 50.
-    - epoch for Experiment 6: line 67, variable name "epoch", default 70.
-    - sampling ratio: line 76, variable name "sample_ratio", default 1.
-- MultiTestM1AndM2.py:
-    - number of iterations used to calculate the average: line 137,  displayed as "range(100)", default 100.
-    - sampling ratio: line 84, variable name "sample_ratio", default 1.
-
-Note: Please ensure that the same configurations are used for the same dataset in both CalculateTList.py and MainExperiment.py.
-
-## Temporary Settings for Artifact 2
+## Temporary Settings for Artifact 
 To conveniently test the experiments, you can adjust the epoch and sampling ratio for Experiments 2, 3 and 6.
 Before running the program, first run the following .sh file to adjust the parameters.
 - Experiment 2:
