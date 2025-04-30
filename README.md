@@ -16,6 +16,7 @@ Jesús López Lobo. 2020. Synthetic datasets for concept drift detection purpose
 ```commandline
 Daniel Arp, Michael Spreitzenbarth, Malte Hubner, Hugo Gascon, Konrad Rieck, and CERT Siemens. 2014. Drebin: Effective and explainable detection of android malware in your pocket. In Ndss, Vol. 14. 23–26.
 ```
+Alternatively, the Drebin dataset can be downloaded from the following link: https://drebin.mlsec.org.
 - CIFAR-10(177M) and CIFAR-100(177M): The datasets will be automatically downloaded when you run the code. The dataset is sourced from:
 ```commandline
 Alex Krizhevsky et al. 2009. Learning multiple layers of features from tiny images. (2009).
