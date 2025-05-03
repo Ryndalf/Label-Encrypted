@@ -235,10 +235,10 @@ The results can be found in the ```res``` folder.
 ```bash
 python ./Label-Encrypted/source_code/MainExperiment.py dataset_name epsilon
 ```
-```epsilon``` here should be replaced by 0.1, 1, 10 or 100. Other ```epsilon``` can refer to Table 4 in the paper.
+```epsilon``` here should be replaced by 0.1, 1.0, 10.0 or 100.0. Other ```epsilon``` can refer to Table 4 in the paper.
 For example:
 ```bash
-python ./Label-Encrypted/source_code/MainExperiment.py seeds 1
+python ./Label-Encrypted/source_code/MainExperiment.py seeds 1.0
 ```
 Finally, we also perform experiments of randomized response with the same ```epsilon```.
 The results are saved as ```xx_random.txt``` in the "res" folder.
