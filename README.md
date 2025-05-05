@@ -310,7 +310,7 @@ Estimated Time: 1 minute; Storage Consumption: 50K
 #### <a id="ex6"></a> Experiment 6: Extrapolated training time, accuracy in clear model, our protocol and randomized response
 All the processes were exactly the same as those in Experiment 2. The differences lay in the datasets and the range of epsilon. 
 The datasets used here were "cifar10", "cifar100", and "purchase10". 
-And the values of epsilon were 1, 10, 100, and 1000.
+And the values of epsilon were 1.0, 10.0, 100.0, and 1000.0.
 - Estimated Time and Storage Consumption
     - Dataset: CIFAR-10; Estimated Time: 483 days; Storage Consumption: 180M
     - Dataset: CIFAR-100; Estimated Time: 5130 days; Storage Consumption: 180M
