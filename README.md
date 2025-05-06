@@ -227,7 +227,7 @@ Initially, we need to pre-calculate the sensitivity list (T list) and the corres
 The results, including the running time of the T list, are saved in the "TListDPNoise" file. 
 Since Zama cannot return the ciphertext alone, our computation time includes both the encryption and decryption processes.
 ```bash
-python ./Label-Encrypted/source_code/CalculateTList.py dataset_name epsilon
+python CalculateTList.py dataset_name epsilon
 ```
 ```dataset_name``` should be replaced by "iris", "seeds", "wine", "abrupto" or "drebin".
 ```epsilon``` here should be replaced by 0.1, 1, 10 or 100. Other ```epsilon``` can refer to Table 4 in the paper.
