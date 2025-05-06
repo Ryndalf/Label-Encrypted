@@ -215,7 +215,7 @@ increase the accuracy of the resulting model.
 
 After running the following commands, you can find the saved results ```table_3_single_test.txt```in the directory of ```./source_code/others/```.
 ```bash
-python ./Label-Encrypted/source_code/SingleTestM1AndM2.py
+python SingleTestM1AndM2.py
 ```
 Estimated Time: 30 seconds; Storage Consumption: 550KB
 
@@ -233,26 +233,26 @@ python ./Label-Encrypted/source_code/CalculateTList.py dataset_name epsilon
 ```epsilon``` here should be replaced by 0.1, 1, 10 or 100. Other ```epsilon``` can refer to Table 4 in the paper.
 For example
 ```bash
-python ./Label-Encrypted/source_code/CalculateTList.py seeds 1
+python CalculateTList.py seeds 0.2
 ```
 Next, we compared different models with different epsilon values. 
 The results can be found in the ```res``` folder.
 ```bash
-python ./Label-Encrypted/source_code/MainExperiment.py dataset_name epsilon
+python MainExperiment.py dataset_name epsilon
 ```
 ```epsilon``` here should be replaced by 0.1, 1.0, 10.0 or 100.0. Other ```epsilon``` can refer to Table 4 in the paper.
 For example:
 ```bash
-python ./Label-Encrypted/source_code/MainExperiment.py seeds 1.0
+python MainExperiment.py seeds 0.2
 ```
 Finally, we also perform experiments of randomized response with the same ```epsilon```.
 The results are saved as ```xx_random.txt``` in the "res" folder.
 ```bash
-python ./Label-Encrypted/source_code/RandomRespond.py --dataset dataset_name --epsilon epsilon
+python RandomRespond.py --dataset dataset_name --epsilon epsilon
 ```
 For example:
 ```bash
-python ./Label-Encrypted/source_code/RandomRespond.py --dataset iris --epsilon 0.1
+python RandomRespond.py --dataset iris --epsilon 0.1
 ```
 
 - Estimated Time and Storage Consumption for each ```epsilon```
@@ -266,15 +266,15 @@ python ./Label-Encrypted/source_code/RandomRespond.py --dataset iris --epsilon 0
 We set $M_1$ is trained on $D_1$, and $M_2$ is trained on $D_1 \cup D_2$.
 We adjusted the sizes of the two datasets, increasing the size ratio of the two datasets from 0.1 all the way up to 1 (when the two datasets are of the same size).
 ```bash
-python ./Label-Encrypted/source_code/MultiTestM1AndM2.py dataset_name
+python MultiTestM1AndM2.py dataset_name
 ```
 ```dataset_name``` here can be replaced by all 8 datasets. For example:
 ```bash
-python ./Label-Encrypted/source_code/MultiTestM1AndM2.py iris
+python MultiTestM1AndM2.py iris
 ```
 After running all the datasets, the results will be saved in the "multiTest" folder. We can also plot the results via:
 ```bash
-python ./Label-Encrypted/source_code/PlotMultiTestM1AndM2.py
+python PlotMultiTestM1AndM2.py
 ```
 **Note: Before proceeding to the plotting stage, we need to run all the datasets in this section.**
 - Estimated Time and Storage Consumption
@@ -296,7 +296,7 @@ Run the command below, you can find the following files in the "others" folder,
 - from_scratch_weights.txt
 - torch_weights.txt
 ```bash
-python ./Label-Encrypted/source_code/PyTorchFromScratch.py
+python PyTorchFromScratch.py
 ```
 Estimated Time: 10 seconds; Storage Consumption: 50K
 
@@ -308,7 +308,7 @@ Run the command below, you can find the following files in the "others" folder:
 - table_7_ciphertext.txt
 - table_7_plaintext.txt
 ```bash
-python ./Label-Encrypted/source_code/PlaintextCiphertext.py
+python PlaintextCiphertext.py
 ```
 Estimated Time: 1 minute; Storage Consumption: 50K
 
