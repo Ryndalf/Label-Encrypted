@@ -168,6 +168,11 @@ sudo apt install liblzma-dev
 ```
 
 ## Artifact Evaluation (Only for Functional and Reproduced badges)
+Now enter the source code directory to run the following experiments.
+```bash
+cd Label-Encrypted/source_code/
+```
+
 ### Main Results and Claims
 #### Main Result 1: Model Improvement by Joining Datasets
 Augmenting a small and unbalanced dataset with a large and balanced dataset will
