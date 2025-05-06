@@ -252,7 +252,7 @@ python RandomRespond.py --dataset dataset_name --epsilon epsilon
 ```
 For example:
 ```bash
-python RandomRespond.py --dataset iris --epsilon 0.1
+python RandomRespond.py --dataset seeds --epsilon 0.2
 ```
 
 - Estimated Time and Storage Consumption for each ```epsilon```
