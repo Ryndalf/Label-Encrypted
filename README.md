@@ -206,6 +206,19 @@ You can reproduce the result from [here](#ex6).
 Due to the randomness of the experiment, the results obtained cannot be exactly the same as those given in the article. 
 However, they are almost the same, which does not affect drawing the same conclusion.
 If there are different versions of Python on your machine, please ensure that you run the code under the Python3.10.14.
+
+#### Extraction for dataset Drebin
+Before extracting the Drebin dataset, make sure you have prepared two files: “feature_vectors.zip” and “sha256_family.csv”.
+Then, you can run the following command to extract the Drebin dataset, with the output saved in the path "Label-Encrypted/data/drebin/".
+```bash
+python drebin_extr.py --csv sha256_family.csv_path --zip feature_vectors.zip_path
+```
+For example:
+```bash
+python drebin_extr.py --csv /mnt/hgfs/drebin/sha256_family.csv --zip /mnt/hgfs/drebin/feature_vectors.zip
+```
+
+
 #### <a id="ex1"></a> Experiment 1:  Accuracy of Models $M_1$ and $M_2$
 We set it up so that the dataset used by the M2 model is larger than that of the M1 model.
 With these settings, we report the average test accuracy of training
