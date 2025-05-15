@@ -5,9 +5,7 @@ import pandas as pd
 import random
 import argparse
 from tqdm import tqdm
-"""
-数据集构成
-"""
+
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--csv', required=True, help='Path to sha256_family.csv')
