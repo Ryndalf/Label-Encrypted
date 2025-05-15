@@ -7,8 +7,8 @@ import argparse
 from tqdm import tqdm
 
 
-csv_path = "sha256_family.csv"
-zip_path = "feature_vectors.zip"
+csv_path = "./sha256_family.csv"
+zip_path = "./feature_vectors.zip"
 
 malicious_df = pd.read_csv(csv_path)
 malicious_set = set(malicious_df['sha256'].tolist())
