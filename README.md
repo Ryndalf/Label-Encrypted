@@ -172,7 +172,7 @@ sudo apt install liblzma-dev
 ### Preprocessing Drebin Dataset
 The raw Drebin datasets cannot be used directly in this experiment; therefore, preprocessing is required.
 Before preprocessing, please save the "feature_vectors.zip" and "sha256_family.csv" files into "Label-Encrypted/data/drebin/".
-Then, please follow the command below to preprocess.
+Then, please follow the commands below to preprocess.
 ```bash
 cd Label-Encrypted/data/drebin/
 python drebin_extr.py
