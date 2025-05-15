@@ -5,9 +5,7 @@ import pandas as pd
 import random
 import argparse
 from tqdm import tqdm
-"""
-数据集构成
-"""
+
 
 csv_path = "sha256_family.csv"
 zip_path = "feature_vectors.zip"
