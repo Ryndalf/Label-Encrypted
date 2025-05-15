@@ -9,13 +9,8 @@ from tqdm import tqdm
 数据集构成
 """
 
-parser = argparse.ArgumentParser()
-parser.add_argument('--csv', required=True, help='Path to sha256_family.csv')
-parser.add_argument('--zip', required=True, help='Path to feature_vectors.zip')
-args = parser.parse_args()
-
-csv_path = args.csv
-zip_path = args.zip
+csv_path = "sha256_family.csv"
+zip_path = "feature_vectors.zip"
 
 malicious_df = pd.read_csv(csv_path)
 malicious_set = set(malicious_df['sha256'].tolist())
@@ -55,5 +50,5 @@ for i, sample in tqdm(enumerate(samples)):
         if feat in vocab_index:
             X[i, vocab_index[feat]] = 1
 print('The drebin is saved in Label-Encrypted/data/drebin/vec.npy')
-np.save('../data/drebin/vec.npy', X)
+np.save('vec.npy', X)
 
