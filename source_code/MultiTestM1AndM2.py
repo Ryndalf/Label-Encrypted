@@ -87,7 +87,9 @@ def get_data_split(name, micro_rate):
     trait, label = trait[idx], label[idx]
 
     # normalization
-    trait = (trait - trait.mean(axis=0)) / trait.std(axis=0)
+    std = trait.std(axis=0)
+    std[std == 0] = 1
+    trait = (trait - trait.mean(axis=0)) / std
     file_copy = np.hstack((trait, label))
     file_copy = uniform(file_copy)
 
