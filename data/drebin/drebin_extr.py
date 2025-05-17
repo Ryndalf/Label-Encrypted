@@ -55,5 +55,7 @@ for i, sample in tqdm(enumerate(samples)):
         if feat in vocab_index:
             X[i, vocab_index[feat]] = 1
 X_with_labels = np.hstack((X, Y.reshape(-1, 1)))
+perm = np.random.permutation(X_with_labels.shape[0])
+X_shuffled = X_with_labels[perm]
 print('The drebin is saved in Label-Encrypted/data/drebin/vec.npy')
-np.save('vec.npy', X_with_labels)
+np.save('vec.npy', X_shuffled)
