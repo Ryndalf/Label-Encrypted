@@ -126,7 +126,9 @@ def run(name, epsilon):
             assert print('not exist dataset')
 
     # normalization
-    trait = (trait - trait.mean(axis=0)) / trait.std(axis=0)
+    std = trait.std(axis=0)
+    std[std == 0] = 1
+    trait = (trait - trait.mean(axis=0)) / std
     input_dim = trait.shape[1]
     output_dim = len(set(label[:, -1]))
 
